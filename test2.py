@@ -1,4 +1,6 @@
-import sys
+import telnetlib
+import sys,subprocess
+HOST= "0"
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout
 app = QApplication.instance()
 if not app:
@@ -7,9 +9,13 @@ if not app:
 fen = QWidget()
 def appui_bouton1():
     print("Appui sur le bouton1")
+    subprocess.call('LTE_fdd_enodeb &', shell = True)
 def appui_bouton2():
     print("Appui sur le bouton2")
+    subprocess.call('python /home/nirvana/qt5_testing/telnet.py', shell = True)
 
+    # Fetch output
+    # Do something else
 # creation du bouton
 bouton1 = QPushButton("mon bouton1 avec une gestion d'appui")
 # on connecte le signal "clicked" a la fonction appui_bouton
